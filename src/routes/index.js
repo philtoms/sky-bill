@@ -6,7 +6,7 @@ import AboutView from 'views/AboutView'
 
 export default (
   <Route path='/' component={CoreLayout}>
-    <IndexRoute component={SkyBill} />
+    <Route path='/bill' component={SkyBill} />
     <Route path='/about' component={AboutView} />
   </Route>
 )
