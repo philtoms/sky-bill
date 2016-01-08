@@ -8,6 +8,8 @@ import CallCharges from '../components/CallCharges'
 import SkyStore from '../components/SkyStore'
 import Statement from '../components/Statement'
 
+import Tabset, { Tab } from '../components/ux/Tabset'
+
 const mapStateToProps = (state) => ({
   currentTab: state.ux.tabSet.page,
   bill: state.skyBill
@@ -28,10 +30,20 @@ export class SkyBill extends React.Component {
       <div className='container text-center'>
         <h1>Your Latest Sky Bill</h1>
         <Statement {...bill.statement} total={bill.total}/>
-        <Package {...bill.package} />
-        <CallCharges {...bill.callCharges} />
-        <SkyStore {...bill.skyStore} />
-
+        <Tabset>
+          <Tab>
+            <h2>Subscriptions</h2>
+            <Package {...bill.package} />
+          </Tab>
+          <Tab>
+            <h2>Call Charges</h2>
+            <CallCharges {...bill.callCharges} />
+          </Tab>
+          <Tab>
+            <h2>Sky Store</h2>
+            <SkyStore {...bill.skyStore} />
+          </Tab>
+        </Tabset>
         <Link to='/about'>Go To About View</Link>
       </div>
     )
