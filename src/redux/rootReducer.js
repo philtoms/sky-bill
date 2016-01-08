@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import { routeReducer as router } from 'redux-simple-router'
-import counter from './modules/counter'
+import ux from './modules/ux'
+import skyBill from './modules/skyBill'
 
 export default combineReducers({
-  counter,
+  ux,
+  skyBill,
   router
 })

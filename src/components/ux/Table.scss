@@ -1,0 +1,22 @@
+.table {
+
+  text-align: left;
+  width: 100%;
+
+  thead {
+    border-bottom: 1px solid #AAA
+  }
+
+  tbody {
+    tr:nth-child(even) {
+      background: #FAFAFA
+    }
+    tr:nth-child(odd) {
+      background: #FFF
+    }
+  }
+
+  th:last-child, td:last-child {
+    text-align: right
+  }
+}
