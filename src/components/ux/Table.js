@@ -4,13 +4,13 @@ export default function Table (data) {
 
   return (
     <table>
-      <thead>
-        {keys.map(h => <th>{h}</th>)}
-      </thead>
+      <thead><tr>
+      {keys.map(h => <th key={h}>{h}</th>)}
+      </tr></thead>
       <tbody>
-        {data.map(b => {
-          return <tr>
-            {keys.map(h => <td>{b[h]}</td>)}
+        {data.map((b,i) => {
+          return <tr key={'r'+i}>
+            {keys.map(h => <td key={h} >{b[h]}</td>)}
           </tr>
         })}
       </tbody>
