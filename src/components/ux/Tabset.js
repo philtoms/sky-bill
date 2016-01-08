@@ -1,3 +1,5 @@
+import styles from './Tabset.scss'
+
 class Tabset extends React.Component {
 
   static propTypes = {
@@ -8,7 +10,7 @@ class Tabset extends React.Component {
 
   constructor () {
     super()
-    this.state = {active: false}
+    this.state = {active: 1}
   }
 
   onClick (i) {
@@ -19,13 +21,13 @@ class Tabset extends React.Component {
     const tabs = this.props.children
     const active = this.props.error || this.state.active || this.props.active
     return (
-      <div className='tabset'>
+      <div className={styles.tabset}>
         <ul>
         {tabs.map((tabItem, i) => {
           // take the nth-1 elements as tab
           const tab = tabItem.props.children.slice(0, -1)
-          return <li key={'tab' + i} className={active === i + 1 ? 'tabset--active' : null}>
-            <button type='button' onClick={this.onClick.bind(this, i)} className='btn--tab'>{tab}</button>
+          return <li key={'tab' + i} className={active === i + 1 ? styles['tabset--active'] : null}>
+            <button type='button' onClick={this.onClick.bind(this, i)} className={styles['btn--tab']}>{tab}</button>
           </li>
         })}
         </ul>
@@ -33,7 +35,7 @@ class Tabset extends React.Component {
           {tabs.map((tabItem, i) => {
             // take the last element as tab page item
             const item = tabItem.props.children.slice(-1)
-            return <section key={'tab' + i}className={active === i + 1 ? 'tabset--active' : null}>{item}</section>
+            return <section key={'tab' + i}className={active === i + 1 ? styles['tabset--active'] : null}>{item}</section>
           })}
         </div>
       </div>
