@@ -24,7 +24,12 @@ http://localhost:3000
 
 ## Tests
 
-
 ```
 npm test
+```
+
+## Requirements
+
+```
+node v4.2.2 or greater
 ```
