@@ -1,9 +1,11 @@
+import styles from './Table.scss'
+
 export default function Table (data) {
   data = {}.toString.call(data) === 'Array' ? data : Object.keys(data).map(k => data[k])
   const keys = data.length ? Object.keys(data[0]) : data
 
   return (
-    <table>
+    <table className={styles.table}>
       <thead><tr>
       {keys.map(h => <th key={h}>{h}</th>)}
       </tr></thead>

@@ -2,7 +2,7 @@ import moment from 'moment'
 
 export default function Statement (statement) {
   return (
-    <div className='container text-center'>
+    <div>
       <h2>Statement</h2>
       <p>Statement generated {moment(statement.generated).format('DD MMM YY')}</p>
       <h2>Statement Period {moment(statement.period.from).format('DD MMM YY')} to {moment(statement.period.to).format('DD MMM YY')}</h2>

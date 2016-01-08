@@ -1,8 +1,9 @@
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { actions } from '../redux/modules/ux'
-import styles from './skyBill.scss'
+import moment from 'moment'
 
+import styles from './skyBill.scss'
 import Package from '../components/Package'
 import CallCharges from '../components/CallCharges'
 import SkyStore from '../components/SkyStore'
@@ -27,12 +28,12 @@ export class SkyBill extends React.Component {
     const { bill, currentTab, tabPage } = this.props
 
     return (
-      <div className='container text-center'>
+      <div className={styles.skyBill + ' container text-center'}>
         <h1>Your Latest Sky Bill</h1>
         <Statement {...bill.statement} total={bill.total}/>
         <Tabset>
           <Tab>
-            <h2>Subscriptions</h2>
+            <h2>Packages</h2>
             <Package {...bill.package} />
           </Tab>
           <Tab>
@@ -44,7 +45,7 @@ export class SkyBill extends React.Component {
             <SkyStore {...bill.skyStore} />
           </Tab>
         </Tabset>
-        <Link to='/about'>Go To About View</Link>
+        <p className={styles.total}>Total: &pound;{bill.total.toFixed(2)}</p>
       </div>
     )
   }

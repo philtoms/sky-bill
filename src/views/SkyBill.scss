@@ -1,8 +1,10 @@
-.counter {
-  font-weight: bold;
-}
+.skyBill {
+  h3 {
+    text-align: left;
+  }
 
-.counter--green {
-  composes: counter;
-  color: rgb(25,200,25);
+  .total {
+    text-align: right;
+    font-weight: bold;
+  }
 }

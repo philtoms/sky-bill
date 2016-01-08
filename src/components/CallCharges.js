@@ -1,11 +1,15 @@
 import Table from './ux/Table'
+import styles from 'views/skyBill.scss'
 
 export default function CallCahrges (props) {
+  const { total = 0 } = props
+  const calls = props.calls.map( c => ({...c, cost: '£'+c.cost.toFixed(2)}))
+
   return (
-    <div className='container text-center'>
+    <div>
       <h3>Calls</h3>
-      <Table {...props.calls} />
-      <p>Total {props.total}</p>
+      <Table {...calls} />
+      <p className={styles.total}>Subtotal: &pound;{total.toFixed(2)}</p>
     </div>
   )
 }

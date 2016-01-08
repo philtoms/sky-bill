@@ -1,15 +1,16 @@
 .tabset {
 
+  background-color: #FDFDFD;
+
   & > ul {
     display: flex;
     align-content: stretch;
     justify-content: flex-start;
-    background-color: #FFF;
     margin: 0;
     padding: 0;
 
     .tabset--active {
-      background-color: #FFF;
+      background-color: transparent;
     }
 
     & > li {
@@ -17,14 +18,21 @@
       display: block;
       border-right: 1px solid #EEE;
       padding: 0;
+      background-color: #EEE;
 
       &:last-child {
         border-right:none;
       }
 
-      & > .btn--tab {
+      & > button {
         text-decoration: none;
         width: 100%;
+        background-color: transparent;
+        border: none;
+
+        &:focus {
+          outline: 0;
+        }
       }
     }
   }
