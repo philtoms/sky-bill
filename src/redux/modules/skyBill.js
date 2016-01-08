@@ -3,21 +3,34 @@ import { createAction, handleActions } from 'redux-actions'
 // ------------------------------------
 // Constants
 // ------------------------------------
-//export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
+const CUSTOMER_BILL = 'CUSTOMER_BILL'
 
 // ------------------------------------
 // Actions
 // ------------------------------------
-//export const increment = createAction(COUNTER_INCREMENT, (value = 1) => value)
+
+const updateCustomerBill = createAction(CUSTOMER_BILL)
+
+const fetchCustomerBill = () => {
+  return dispatch => {
+    return window.fetch('https://still-scrubland-9880.herokuapp.com/bill.json')
+      .then(function (response) {
+        return response.json()
+      }).then(function (json) {
+        dispatch(updateCustomerBill(json))
+      }).catch(function (ex) {
+        console.log('parsing failed', ex)
+      })
+  }
+}
 
 export const actions = {
-  // increment,
-  // doubleAsync
+  fetchCustomerBill
 }
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
 export default handleActions({
-//  [COUNTER_INCREMENT]: (state, { payload }) => state + payload
+  [CUSTOMER_BILL]: (state, { payload }) => payload
 }, 1)
