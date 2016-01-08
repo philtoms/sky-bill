@@ -23,6 +23,14 @@ describe('(View) SkyBill', function () {
   beforeEach(function () {
     _spies = {}
     _props = {
+      currentTab: 1,
+      bill:{
+        statement:  {period: {}},
+        package: {subscriptions: []},
+        callCharges: {calls : []},
+        skyStore: {},
+        total:0
+      },
       ...bindActionCreators({
         tabPage: (_spies.tabPage = sinon.spy())
       }, _spies.dispatch = sinon.spy())
