@@ -3,8 +3,8 @@ import styles from 'views/skyBill.scss'
 
 export default function SkyStore (props) {
   const { buyAndKeep=[], rentals=[], total = 0 } = props
-  const _buyAndKeep = buyAndKeep.map( c => ({...c, cost: '£'+c.cost.toFixed(2)}))
-  const _rentals = rentals.map( c => ({...c, cost: '£'+c.cost.toFixed(2)}))
+  const _buyAndKeep = buyAndKeep.map(c => ({...c, cost: '£' + c.cost.toFixed(2)}))
+  const _rentals = rentals.map(c => ({...c, cost: '£' + c.cost.toFixed(2)}))
 
   return (
     <div>

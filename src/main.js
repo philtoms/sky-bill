@@ -12,17 +12,17 @@ const history = useBasename(createHistory)({
 
 const store = configureStore({
   skyBill: {
-    statement:  {period: {}},
+    statement: {period: {}},
     package: {subscriptions: []},
-    callCharges: {calls : []},
+    callCharges: {calls: []},
     skyStore: {},
-    total:0
+    total: 0
   },
   ux: {tabSet: {page: 1}}
 })
 
 // bootstrap the app. In this simple test, app state goes immediately to show bill
-store.dispatch(actions.fetchCustomerBill()).then(function(){
+store.dispatch(actions.fetchCustomerBill()).then(function () {
   store.dispatch(pushPath('/bill'))
 })
 

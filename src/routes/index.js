@@ -1,4 +1,4 @@
-import { Route, IndexRoute } from 'react-router'
+import { Route } from 'react-router'
 
 import CoreLayout from 'layouts/CoreLayout'
 import SkyBill from 'views/SkyBill'

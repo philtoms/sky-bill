@@ -2,8 +2,8 @@ import Table from './ux/Table'
 import styles from 'views/skyBill.scss'
 
 export default function CallCahrges (props) {
-  const { calls=[], total = 0 } = props
-  const _calls = calls.map( c => ({...c, cost: '£'+c.cost.toFixed(2)}))
+  const { calls = [], total = 0 } = props
+  const _calls = calls.map(c => ({...c, cost: '£' + c.cost.toFixed(2)}))
 
   return (
     <div>

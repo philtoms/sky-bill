@@ -3,7 +3,7 @@ import styles from 'views/skyBill.scss'
 
 export default function Package (props) {
   const { subscriptions = [], total = 0 } = props
-  const _subscriptions = subscriptions.map( c => ({...c, cost: '£'+c.cost.toFixed(2)}))
+  const _subscriptions = subscriptions.map(c => ({...c, cost: '£' + c.cost.toFixed(2)}))
 
   return (
     <div>
