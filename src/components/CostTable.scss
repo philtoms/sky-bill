@@ -1,0 +1,10 @@
+.cost-table {
+
+  th:first-child, td:first-child {
+    width: 25%;
+  }
+
+  th:last-child, td:last-child {
+    text-align: right;
+  }
+}
