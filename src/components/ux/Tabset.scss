@@ -9,7 +9,7 @@
     margin: 0;
     padding: 0;
 
-    .tabset--active {
+    .active {
       background-color: transparent;
     }
 
@@ -41,7 +41,7 @@
     & > section {
       display: none;
 
-      &.tabset--active {
+      &.active {
         display: block;
       }
     }

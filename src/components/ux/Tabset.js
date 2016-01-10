@@ -1,6 +1,6 @@
 import styles from './Tabset.scss'
 
-class Tabset extends React.Component {
+export class Tabset extends React.Component {
 
   static propTypes = {
     childern: React.PropTypes.array,
@@ -13,8 +13,8 @@ class Tabset extends React.Component {
     this.state = {active: 1}
   }
 
-  onClick (i) {
-    this.setState({active: i + 1})
+  onClick (idx) {
+    this.setState({active: idx})
   }
 
   render () {
@@ -24,18 +24,20 @@ class Tabset extends React.Component {
       <div className={styles.tabset}>
         <ul>
         {tabs.map((tabItem, i) => {
-          // take the nth-1 elements as tab
-          const tab = tabItem.props.children.slice(0, -1)
-          return <li key={'tab' + i} className={active === i + 1 ? styles['tabset--active'] : null}>
-            <button type='button' onClick={this.onClick.bind(this, i)} className={styles['btn--tab']}>{tab}</button>
+          const idx = i + 1
+          // take the 1st element as tab
+          const tab = tabItem.props.children[0]
+          return <li key={'tab' + idx} className={active === idx ? styles.active : null}>
+            <button type='button' onClick={this.onClick.bind(this, idx)}>{tab}</button>
           </li>
         })}
         </ul>
         <div>
           {tabs.map((tabItem, i) => {
+            const idx = i + 1
             // take the last element as tab page item
-            const item = tabItem.props.children.slice(-1)
-            return <section key={'tab' + i}className={active === i + 1 ? styles['tabset--active'] : null}>{item}</section>
+            const item = tabItem.props.children[1]
+            return <section key={'tab' + idx}className={active === idx ? styles.active : null}>{item}</section>
           })}
         </div>
       </div>
@@ -52,5 +54,3 @@ export class Tab extends React.Component {
     return <div>{this.props.children}</div>
   }
 }
-
-export default Tabset

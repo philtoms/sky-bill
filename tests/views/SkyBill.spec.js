@@ -1,6 +1,7 @@
 import TestUtils from 'react-addons-test-utils'
 import { bindActionCreators } from 'redux'
 import { SkyBill } from 'views/SkyBill'
+import { Tabset } from 'components/ux/Tabset'
 
 function shallowRender (component) {
   const renderer = TestUtils.createRenderer()
@@ -48,6 +49,12 @@ describe('(View) SkyBill', function () {
 
     expect(h1).to.exist
     expect(h1.textContent).to.match(/Your Latest Sky Bill/)
+  })
+
+  it('Should display a tabset with three tabs.', function () {
+    const tabset = TestUtils.findRenderedComponentWithType(_rendered, Tabset)
+    expect(tabset).to.exist
+    expect(tabset.props.children.length).to.equal(3)
   })
 
 })
