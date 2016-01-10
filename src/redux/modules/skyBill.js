@@ -14,7 +14,7 @@ const updateCustomerBill = createAction(CUSTOMER_BILL)
 
 const fetchCustomerBill = () => {
   return dispatch => {
-    return window.fetch('https://still-scrubland-9880.herokuapp.com/bill.json')
+    return (window.fetch || fetch)('https://still-scrubland-9880.herokuapp.com/bill.json')
       .then(checkResponseStatus)
       .then(parseJSON)
       .then(function (data) {
