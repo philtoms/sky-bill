@@ -8,7 +8,7 @@ function mockUp() {
   _fetch = window.fetch
   window.fetch = () => {
     return new Promise( (resolve, reject) => {
-      resolve({json: () => ({"total": "136.79"})})
+      resolve({status: 200, json: () => ({"total": "136.79"})})
     })
   }
 }
@@ -17,7 +17,7 @@ function mockDown() {
   window.fetch = _fetch
 }
 
-describe ('Actions (skyView)', function(){
+describe ('Actions (skyBill)', function(){
 
   let _spies = {}
 
