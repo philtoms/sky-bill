@@ -3,23 +3,13 @@ import styles from './Tabset.scss'
 export class Tabset extends React.Component {
 
   static propTypes = {
+    active: React.PropTypes.number,
     childern: React.PropTypes.array,
-    error: React.PropTypes.bool,
-    active: React.PropTypes.bool
+    page: React.PropTypes.func.isRequired
   };
 
-  constructor () {
-    super()
-    this.state = {active: 1}
-  }
-
-  onClick (idx) {
-    this.setState({active: idx})
-  }
-
   render () {
-    const tabs = this.props.children
-    const active = this.props.error || this.state.active || this.props.active
+    const{ active=1, children, page, tabs=children } = this.props
     return (
       <div className={styles.tabset}>
         <ul>
@@ -28,7 +18,7 @@ export class Tabset extends React.Component {
           // take the 1st element as tab
           const tab = tabItem.props.children[0]
           return <li key={'tab' + idx} className={active === idx ? styles.active : null}>
-            <button type='button' onClick={this.onClick.bind(this, idx)}>{tab}</button>
+            <button type='button' onClick={page.bind(null,idx)}>{tab}</button>
           </li>
         })}
         </ul>
