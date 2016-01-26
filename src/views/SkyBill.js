@@ -7,7 +7,7 @@ import CallCharges from '../components/CallCharges'
 import SkyStore from '../components/SkyStore'
 import Statement from '../components/Statement'
 
-import Tabset, { Tab } from '../components/ux/Tabset'
+import { Tabset, Tab } from '../components/ux/Tabset'
 
 const mapStateToProps = (state) => ({
   bill: state.skyBill

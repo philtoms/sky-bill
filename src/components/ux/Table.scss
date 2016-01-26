@@ -16,7 +16,8 @@
     }
   }
 
-  th:last-child, td:last-child {
-    text-align: right
+  th, td {
+    text-transform: capitalize;
   }
+
 }
