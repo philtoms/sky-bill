@@ -19,6 +19,7 @@ const fetchCustomerBill = () => {
       .then(parseJSON)
       .then(function (data) {
         dispatch(updateCustomerBill(data))
+        return 'done'
       }).catch(function (ex) {
         console.log('request failed', ex)
       })

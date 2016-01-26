@@ -10,23 +10,26 @@ import Statement from '../components/Statement'
 import { Tabset, Tab } from '../components/ux/Tabset'
 
 const mapStateToProps = (state) => ({
-  bill: state.skyBill
+  bill: state.skyBill,
+  active: state.ux.tabSet.page
 })
 
 export class SkyBill extends React.Component {
 
   static propTypes = {
-    bill: React.PropTypes.object.isRequired
+    bill: React.PropTypes.object.isRequired,
+    tabPage: React.PropTypes.func.isRequired,
+    active: React.PropTypes.number.isRequired
   };
 
   render () {
-    const { bill } = this.props
+    const { active, bill, tabPage } = this.props
 
     return (
       <div className={styles.skyBill + ' container text-center'}>
         <h1>Your Latest Sky Bill</h1>
         <Statement {...bill.statement} total={bill.total}/>
-        <Tabset>
+        <Tabset active={active} page={tabPage}>
           <Tab>
             <h2>Packages</h2>
             <Package {...bill.package} />
